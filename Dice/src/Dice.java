@@ -39,12 +39,21 @@ public class Dice
 			public void actionPerformed(ActionEvent e)
 			{
 				String input = text.getText();
-				int side = Integer.parseInt(input);//convert String to int
-				Random myRand = new Random();
-				int roll = myRand.nextInt(side);
-				String newText = "Roll is: " + (roll+1);
-				label.setText(newText);
-				System.out.println(newText);
+				try
+				{
+					int side = Integer.parseInt(input);//convert String to int
+					Random myRand = new Random();
+					int roll = myRand.nextInt(side);
+					String newText = "Roll is: " + (roll+1);
+					label.setText(newText);
+					System.out.println(newText);
+				}
+				catch (Exception ex)
+				{
+					String newText = "Enter an integer greater than 0";
+					label.setText(newText);
+					System.out.println(newText);
+				}
 			}
 		};
 		

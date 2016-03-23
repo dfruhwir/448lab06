@@ -38,17 +38,17 @@ public class Dice
 		{
 			public void actionPerformed(ActionEvent e)
 			{
-				String input = text.getText();
+				String input = text.getText(); //Get sides input
 				try
 				{
 					int side = Integer.parseInt(input);//convert String to int
 					Random myRand = new Random();
-					int roll = myRand.nextInt(side);
-					String newText = "Roll is: " + (roll+1);
+					int roll = myRand.nextInt(side); //Roll random number from 0 to input-1
+					String newText = "Roll is: " + (roll+1); //Add 1 to random number
 					label.setText(newText);
 					System.out.println(newText);
 				}
-				catch (Exception ex)
+				catch (Exception ex) //If bad input
 				{
 					String newText = "Enter an integer greater than 0";
 					label.setText(newText);

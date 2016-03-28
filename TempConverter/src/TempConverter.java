@@ -58,12 +58,34 @@ public class TempConverter
             public void actionPerformed(ActionEvent e) 
             {
             	String input = text.getText();
-				double tempInF = Double.parseDouble(input);//convert String to double
-				double tempInC = (tempInF-32)*(5.0/9.0); //convert F to C
-				String newText = "Temp in C: " + String.format("%.2f",tempInC);//convert double to String and
+            	//Attempt conversion
+            	try
+            	{
+            		double tempInF = Double.parseDouble(input);//convert String to double
+            		if(tempInF < -459.67) //If temp entered less than absolute zero
+            		{
+            			//Tell user to enter value greater than -459.67 F
+            			String newText = "Enter a valid number >= -459.67 F (absolute zero)";
+                		label.setText(newText);
+                		System.out.println(newText);
+            		}
+            		else
+            		{
+            			double tempInC = (tempInF-32)*(5.0/9.0); //convert F to C
+            			String newText = "Temp in C: " + String.format("%.2f",tempInC);//convert double to String and
 											       //only display 2 places past decimal
-				label.setText(newText);
-				System.out.println(newText);
+            			label.setText(newText);
+            			System.out.println(newText);
+            		}
+            	}
+            	//If input not a number
+            	catch (Exception ex)
+            	{
+            		//Tell user to input a number
+            		String newText = "Enter a valid number >= -459.67 F (absolute zero)";
+            		label.setText(newText);
+            		System.out.println(newText);
+            	}
             }
         };
         return action;

@@ -25,7 +25,7 @@ public class TempConverter
 		CKbutton = new JButton("C to K");
 		KFbutton = new JButton("K to F");
 		KCbutton = new JButton("K to C");
-		text = new JTextField(3);//3 cols, not 20 chars
+		text = new JTextField(5);
 		label1 = new JLabel("Convert from:");
 		label2 = new JLabel("Enter a temperature");
 		

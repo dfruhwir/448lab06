@@ -13,19 +13,21 @@ public class TempConverter
 	private JButton KFbutton;
 	private JButton KCbutton;
 	private JTextField text;
-	private JLabel label;
+	private JLabel label1;
+	private JLabel label2;
 	
 	public TempConverter()
 	{
 		panel = new JPanel();
-		FCbutton = new JButton("Convert from F to C");
-		FKbutton = new JButton("Convert from F to K");
-		CFbutton = new JButton("Convert from C to F");
-		CKbutton = new JButton("Convert from C to K");
-		KFbutton = new JButton("Convert from K to F");
-		KCbutton = new JButton("Convert from K to C");
+		FCbutton = new JButton("F to C");
+		FKbutton = new JButton("F to K");
+		CFbutton = new JButton("C to F");
+		CKbutton = new JButton("C to K");
+		KFbutton = new JButton("K to F");
+		KCbutton = new JButton("K to C");
 		text = new JTextField(3);//3 cols, not 20 chars
-		label = new JLabel("Enter a temperature");
+		label1 = new JLabel("Convert from:");
+		label2 = new JLabel("Enter a temperature");
 		
 		//Load the listeners
 		FCbutton.addActionListener(FCbuttonAction());
@@ -37,13 +39,14 @@ public class TempConverter
 		
 		//load the panel
 		panel.add(text);
+		panel.add(label1);
 		panel.add(FCbutton);
 		panel.add(FKbutton);
 		panel.add(CFbutton);
 		panel.add(CKbutton);
 		panel.add(KFbutton);
 		panel.add(KCbutton);
-		panel.add(label);
+		panel.add(label2);
 	}
 	
 	public Component getContent()
@@ -67,7 +70,7 @@ public class TempConverter
             		{
             			//Tell user to enter value greater than -459.67 F
             			String newText = "Enter a number >= -459.67 F (absolute zero)";
-                		label.setText(newText);
+                		label2.setText(newText);
                 		System.out.println(newText);
             		}
             		else
@@ -75,7 +78,7 @@ public class TempConverter
             			double tempInC = (tempInF-32)*(5.0/9.0); //convert F to C
             			String newText = "Temp in C: " + String.format("%.2f",tempInC);//convert double to String and
 											       //only display 2 places past decimal
-            			label.setText(newText);
+            			label2.setText(newText);
             			System.out.println(newText);
             		}
             	}
@@ -84,7 +87,7 @@ public class TempConverter
             	{
             		//Tell user to input a number
             		String newText = "Enter a number >= -459.67 F (absolute zero)";
-            		label.setText(newText);
+            		label2.setText(newText);
             		System.out.println(newText);
             	}
             }
@@ -108,7 +111,7 @@ public class TempConverter
             		{
             			//Tell user to enter value greater than -459.67 F
             			String newText = "Enter a number >= -459.67 F (absolute zero)";
-                		label.setText(newText);
+                		label2.setText(newText);
                 		System.out.println(newText);
             		}
             		else
@@ -116,7 +119,7 @@ public class TempConverter
             			double tempInK = (tempInF-32)*(5.0/9.0)+273.15; //convert F to K
             			String newText = "Temp in K: " + String.format("%.2f",tempInK);//convert double to String and
 											       //only display 2 places past decimal
-            			label.setText(newText);
+            			label2.setText(newText);
             			System.out.println(newText);
             		}
             	}
@@ -125,7 +128,7 @@ public class TempConverter
             	{
             		//Tell user to input a number
             		String newText = "Enter a number >= -459.67 F (absolute zero)";
-            		label.setText(newText);
+            		label2.setText(newText);
             		System.out.println(newText);
             	}
             }
@@ -149,7 +152,7 @@ public class TempConverter
             		{
             			//Tell user to enter value greater than -273.15
             			String newText = "Enter a number >= -273.15 C (absolute zero)";
-                		label.setText(newText);
+                		label2.setText(newText);
                 		System.out.println(newText);
             		}
             		else
@@ -157,7 +160,7 @@ public class TempConverter
             			double tempInF = tempInC*(9.0/5.0)+32; //convert C to F
             			String newText = "Temp in F: " + String.format("%.2f",tempInF);//convert double to String and
 											       //only display 2 places past decimal
-            			label.setText(newText);
+            			label2.setText(newText);
             			System.out.println(newText);
             		}
             	}
@@ -166,7 +169,7 @@ public class TempConverter
             	{
             		//Tell user to input a number
             		String newText = "Enter a number >= -273.15 C (absolute zero)";
-            		label.setText(newText);
+            		label2.setText(newText);
             		System.out.println(newText);
             	}
             }
@@ -190,7 +193,7 @@ public class TempConverter
             		{
             			//Tell user to enter value greater than -273.15
             			String newText = "Enter a number >= -273.15 C (absolute zero)";
-                		label.setText(newText);
+                		label2.setText(newText);
                 		System.out.println(newText);
             		}
             		else
@@ -198,7 +201,7 @@ public class TempConverter
             			double tempInK = tempInC+273.15; //convert C to K
             			String newText = "Temp in K: " + String.format("%.2f",tempInK);//convert double to String and
 											       //only display 2 places past decimal
-            			label.setText(newText);
+            			label2.setText(newText);
             			System.out.println(newText);
             		}
             	}
@@ -207,7 +210,7 @@ public class TempConverter
             	{
             		//Tell user to input a number
             		String newText = "Enter a number >= -273.15 C (absolute zero)";
-            		label.setText(newText);
+            		label2.setText(newText);
             		System.out.println(newText);
             	}
             }
@@ -231,7 +234,7 @@ public class TempConverter
             		{
             			//Tell user to enter value greater than 0
             			String newText = "Enter a number >= 0 K (absolute zero)";
-                		label.setText(newText);
+                		label2.setText(newText);
                 		System.out.println(newText);
             		}
             		else
@@ -239,7 +242,7 @@ public class TempConverter
             			double tempInF = (tempInK-273.15)*(9.0/5.0)+32; //convert K to F
             			String newText = "Temp in F: " + String.format("%.2f",tempInF);//convert double to String and
 											       //only display 2 places past decimal
-            			label.setText(newText);
+            			label2.setText(newText);
             			System.out.println(newText);
             		}
             	}
@@ -248,7 +251,7 @@ public class TempConverter
             	{
             		//Tell user to input a number
             		String newText = "Enter a number >= 0 K (absolute zero)";
-            		label.setText(newText);
+            		label2.setText(newText);
             		System.out.println(newText);
             	}
             }
@@ -272,7 +275,7 @@ public class TempConverter
             		{
             			//Tell user to enter value greater than 0
             			String newText = "Enter a number >= 0 K (absolute zero)";
-                		label.setText(newText);
+                		label2.setText(newText);
                 		System.out.println(newText);
             		}
             		else
@@ -280,7 +283,7 @@ public class TempConverter
             			double tempInC = tempInK-273.15; //convert K to C
             			String newText = "Temp in C: " + String.format("%.2f",tempInC);//convert double to String and
 											       //only display 2 places past decimal
-            			label.setText(newText);
+            			label2.setText(newText);
             			System.out.println(newText);
             		}
             	}
@@ -289,7 +292,7 @@ public class TempConverter
             	{
             		//Tell user to input a number
             		String newText = "Enter a number >= 0 K (absolute zero)";
-            		label.setText(newText);
+            		label2.setText(newText);
             		System.out.println(newText);
             	}
             }

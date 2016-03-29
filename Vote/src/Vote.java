@@ -86,6 +86,12 @@ public class Vote
             		label4.setText(newText);
             		System.out.println(newText);
 				}
+				else if(!(clinton.isSelected()||trump.isSelected()||sanders.isSelected()||cruz.isSelected()))
+				{
+					String newText = "Please select a candidate";
+            		label4.setText(newText);
+            		System.out.println(newText);
+				}
 				else
 				{
 					try
@@ -101,7 +107,22 @@ public class Vote
 						{
 							FileWriter fstream = new FileWriter(l + "_" + f + "_ballot.txt");
 							BufferedWriter out = new BufferedWriter(fstream);
-							out.write("Hillary Clinton");
+							if(clinton.isSelected())
+							{
+								out.write("Hillary Clinton");
+							}
+							else if(trump.isSelected())
+							{
+								out.write("Donald Trump");
+							}
+							else if(sanders.isSelected())
+							{
+								out.write("Bernie Sanders");
+							}
+							else if(cruz.isSelected())
+							{
+								out.write("Ted Cruz");
+							}
 							out.close();
 							String newText = "Vote casted!";
 		            		label4.setText(newText);
